@@ -1,5 +1,6 @@
 import './App.css';
 import Contact from './components/Contact';
+import TeamsTable from './components/TeamsTable';
 
 function getContacts(){
   const CONTACTS = [
@@ -19,15 +20,7 @@ function getContacts(){
 function App() {
   return (
     <div className="App">
-      <table>
-        <tr>
-          <th>Team name</th>
-          <th>Main system</th>
-          <th>Numbers</th>
-          <th> </th>
-        </tr>
-        {getContacts()}
-      </table>
+      <TeamsTable />
     </div>
   );
 }
