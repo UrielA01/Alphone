@@ -13,7 +13,7 @@ function Contact({teamName, system, numbers}) {
           <td>{teamName}</td>
           <td>{system}</td>
             <td>{parsePhoneList(numbers)}</td>
-            <td><EditWindow /></td>
+            <td></td>
         </tr>
     );
 }

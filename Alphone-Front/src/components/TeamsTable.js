@@ -30,19 +30,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-    createData('tasht', "tomcloud", "0545652222 0000000000", 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function TeamsTable() {
+export default function TeamsTable({contacts}) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -55,13 +43,13 @@ export default function TeamsTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.name}>
+                    {contacts.map((contact) => (
+                        <StyledTableRow key={contact.teamName}>
                             <StyledTableCell component="th" scope="row">
-                                {row.name}
+                                {contact.teamName}
                             </StyledTableCell>
-                            <StyledTableCell>{row.calories}</StyledTableCell>
-                            <StyledTableCell>{row.fat}</StyledTableCell>
+                            <StyledTableCell>{contact.system}</StyledTableCell>
+                            <StyledTableCell>{contact.numbers}</StyledTableCell>
                             <StyledTableCell><DeleteIcon /> <EditIcon /></StyledTableCell>
                         </StyledTableRow>
                     ))}
