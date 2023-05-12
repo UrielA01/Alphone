@@ -1,5 +1,4 @@
 import React from "react";
-import EditWindow from "./EditWindow";
 
 const parsePhoneList = ((list) =>
     list.map((number) => (

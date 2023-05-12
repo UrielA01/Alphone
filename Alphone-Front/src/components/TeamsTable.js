@@ -9,6 +9,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import NumbersList from './NumbersList';
+import EditModal from './EditModal';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -20,17 +22,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    '&:last-child td, &:last-child th': {
-        border: 0,
-    },
-}));
-
-export default function TeamsTable({contacts}) {
+export default function TeamsTable({ contacts }) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -44,14 +36,14 @@ export default function TeamsTable({contacts}) {
                 </TableHead>
                 <TableBody>
                     {contacts.map((contact) => (
-                        <StyledTableRow key={contact.teamName}>
+                        <TableRow key={contact.teamName}>
                             <StyledTableCell component="th" scope="row">
                                 {contact.teamName}
                             </StyledTableCell>
                             <StyledTableCell>{contact.system}</StyledTableCell>
-                            <StyledTableCell>{contact.numbers}</StyledTableCell>
-                            <StyledTableCell><DeleteIcon /> <EditIcon /></StyledTableCell>
-                        </StyledTableRow>
+                            <StyledTableCell><NumbersList numbers={contact.numbers} /></StyledTableCell>
+                            <StyledTableCell><EditModal icon={(<EditIcon />)} /> <EditModal icon={(<DeleteIcon />)} /></StyledTableCell>
+                        </TableRow>
                     ))}
                 </TableBody>
             </Table>
