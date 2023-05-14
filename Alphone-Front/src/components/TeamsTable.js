@@ -11,6 +11,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import NumbersList from './NumbersList';
 import EditModal from './EditModal';
+import DeleteDialog from './DeleteDialog';
+import EditDialog from './EditDiaglog';
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -42,7 +45,8 @@ export default function TeamsTable({ contacts }) {
                             </StyledTableCell>
                             <StyledTableCell>{contact.system}</StyledTableCell>
                             <StyledTableCell><NumbersList numbers={contact.numbers} /></StyledTableCell>
-                            <StyledTableCell><EditModal icon={(<EditIcon />)} /> <EditModal icon={(<DeleteIcon />)} /></StyledTableCell>
+                            {/* <StyledTableCell><EditModal icon={(<EditIcon />)} /> <EditModal icon={(<DeleteIcon />)} /></StyledTableCell> */}
+                            <StyledTableCell><DeleteDialog /> <EditDialog /> </StyledTableCell>
                         </TableRow>
                     ))}
                 </TableBody>
