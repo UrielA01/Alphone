@@ -4,11 +4,12 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Edit from '@mui/icons-material/Edit';
+import NumbersListInput from './NumbersListInput';
+import { DialogContentText } from '@mui/material';
 
-export default function EditDialog() {
+export default function EditDialog({ contact }) {
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -27,9 +28,6 @@ export default function EditDialog() {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Edit team</DialogTitle>
                 <DialogContent>
-                    {/* <DialogContentText>
-                        Edit team data
-                    </DialogContentText> */}
                     <TextField
                         autoFocus
                         margin="dense"
@@ -47,14 +45,10 @@ export default function EditDialog() {
                         fullWidth
                         variant="standard"
                     />
-                    <TextField
-                        margin="dense"
-                        id="numbers"
-                        label="Numbers"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                    />
+                    <DialogContentText>
+                        Numbers:
+                    </DialogContentText>  
+                    <NumbersListInput numbers={contact.numbers}/>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
