@@ -1,4 +1,5 @@
 import './App.css';
+import AddButton from './components/AddButton';
 import Contact from './components/Contact';
 import TeamsTable from './components/TeamsTable';
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <TeamsTable contacts={CONTACTS} />
+      <AddButton /> 
     </div>
   );
 }
