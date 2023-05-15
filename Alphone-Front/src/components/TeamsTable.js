@@ -42,7 +42,6 @@ export default function TeamsTable({ contacts }) {
                             </StyledTableCell>
                             <StyledTableCell>{contact.system}</StyledTableCell>
                             <StyledTableCell><NumbersList numbers={contact.numbers} /></StyledTableCell>
-                            {/* <StyledTableCell><EditModal icon={(<EditIcon />)} /> <EditModal icon={(<DeleteIcon />)} /></StyledTableCell> */}
                             <StyledTableCell><DeleteDialog /> <EditDialog contact={contact} /> </StyledTableCell>
                         </TableRow>
                     ))}

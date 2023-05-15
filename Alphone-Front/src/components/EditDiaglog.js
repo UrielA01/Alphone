@@ -45,9 +45,6 @@ export default function EditDialog({ contact }) {
                         defaultValue={contact.system}
                         variant="standard"
                         />
-                    <DialogContentText>
-                        Main System
-                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
