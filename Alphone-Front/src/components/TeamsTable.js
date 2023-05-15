@@ -7,10 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import NumbersList from './NumbersList';
-import EditModal from './EditModal';
 import DeleteDialog from './DeleteDialog';
 import EditDialog from './EditDiaglog';
 
