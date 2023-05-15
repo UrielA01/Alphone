@@ -6,7 +6,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Edit from '@mui/icons-material/Edit';
-import NumbersListInput from './NumbersListInput';
 import { DialogContentText } from '@mui/material';
 
 export default function EditDialog({ contact }) {
@@ -29,26 +28,26 @@ export default function EditDialog({ contact }) {
                 <DialogTitle>Edit team</DialogTitle>
                 <DialogContent>
                     <TextField
-                        autoFocus
                         margin="dense"
                         id="name"
-                        label="Team name"
+                        label="Team Name"
                         type="text"
                         fullWidth
+                        defaultValue={contact.teamName}
                         variant="standard"
                     />
                     <TextField
                         margin="dense"
                         id="mainSystem"
-                        label="Main system"
+                        label='Main System'
                         type="text"
                         fullWidth
+                        defaultValue={contact.system}
                         variant="standard"
-                    />
+                        />
                     <DialogContentText>
-                        Numbers:
-                    </DialogContentText>  
-                    <NumbersListInput numbers={contact.numbers}/>
+                        Main System
+                    </DialogContentText>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
