@@ -1,33 +1,52 @@
-import { List, ListItem, TextField } from "@mui/material";
+import { Button, List, ListItem, TextField } from "@mui/material";
 import { useState } from "react";
 import React from "react";
 import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 function NumbersListInput({ numbers }) {
-    const [numbersList, setNumbers] = useState(numbers)
+    const [numbersList, setNumbersList] = useState(numbers);
 
     function addNumber() {
-        setNumbers([...numbersList, ''])
+        setNumbersList([...numbersList, '']);
+    }
+
+    function removeNumber(index) {
+        const list = [...numbersList];
+        list.splice(index, 1);
+        setNumbersList([...list]);
+    }
+
+    function changeNumber(e, index) {
+        const list = numbersList;
+        list[index] = e.target.value;
+        setNumbersList([...list]);
     }
 
     return (
         <List>
-            {numbers.map((number) => (
-                <ListItem>
+            {numbersList.map((number, index) => (
+                <ListItem key={index + "-number"}>
                     <TextField
-                        key={number}
                         margin="dense"
                         id={number}
-                        label={number}
-                        type="text"
+                        // defaultValue={number}
+                        type="number"
                         fullWidth
                         variant="standard"
+                        value={number}
+                        onChange={(e) => changeNumber(e, index)}
                     />
+                    <Button color="inherit" onClick={() => removeNumber(index)} disableElevation>
+                        <RemoveIcon />
+                    </Button>
                 </ListItem>
             ))
             }
             <ListItem>
-                <AddIcon onClick={addNumber}/>
+                <Button variant="outlined" color="inherit" onClick={addNumber} disableElevation>
+                    <AddIcon />
+                </Button>
             </ListItem>
         </List>
     );

@@ -1,5 +1,6 @@
 import './App.css';
 import AddButton from './components/AddButton';
+import NumbersListInput from './components/NumbersListInput';
 import TeamsTable from './components/TeamsTable';
 
 const CONTACTS = [
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <TeamsTable contacts={CONTACTS} />
       <AddButton /> 
+      <NumbersListInput numbers={["0987230594", "23432412", "3242342"]}/>
     </div>
   );
 }

@@ -6,7 +6,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Edit from '@mui/icons-material/Edit';
-import { DialogContentText } from '@mui/material';
 
 export default function EditDialog({ contact }) {
     const [open, setOpen] = React.useState(false);

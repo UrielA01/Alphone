@@ -4,8 +4,8 @@ import React from "react";
 function NumbersList({ numbers }) {
     return (
         <List dense={true}>
-            {numbers.map((nubmer) => (
-                <ListItem>
+            {numbers.map((nubmer, index) => (
+                <ListItem key={index}>
                     <ListItemText
                         primary={nubmer}
                     />
