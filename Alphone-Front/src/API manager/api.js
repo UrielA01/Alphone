@@ -12,7 +12,7 @@ const addContact = (teamName, system, numbers) => {
         system: system,
         numbers: numbers
     });
-    return response.data;
+    return response;
 }
 
 export { contacts, addContact }
