@@ -25,11 +25,13 @@ export default function TeamsTableBody() {
         contacts().then(list => setContactsList(list.data))
     }, []);
 
+
+
     return (
         <TableBody>
             {
                 contactsList.map((contact) => (
-                    <TableRow key={contact.teamName}>
+                    <TableRow key={contact._id}>
                         <StyledTableCell component="th" scope="row">
                             {contact.teamName}
                         </StyledTableCell>

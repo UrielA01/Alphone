@@ -4,10 +4,10 @@ import React from "react";
 function NumbersList({ numbers }) {
     return (
         <List dense={true}>
-            {numbers.map((nubmer, index) => (
-                <ListItem key={index}>
+            {numbers.map((number, index) => (
+                <ListItem key={index + number + "list"}>
                     <ListItemText
-                        primary={nubmer}
+                        primary={number}
                     />
                 </ListItem>
             ))

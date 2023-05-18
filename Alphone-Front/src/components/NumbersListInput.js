@@ -4,28 +4,27 @@ import React from "react";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-function NumbersListInput({ numbers }) {
-    const [numbersList, setNumbersList] = useState(numbers);
+function NumbersListInput({ numbers, setNumbers }) {
 
     function addNumber() {
-        setNumbersList([...numbersList, '']);
+        setNumbers([...numbers, '']);
     }
 
     function removeNumber(index) {
-        const list = [...numbersList];
+        const list = [...numbers];
         list.splice(index, 1);
-        setNumbersList([...list]);
+        setNumbers([...list]);
     }
 
     function changeNumber(e, index) {
-        const list = numbersList;
+        const list = numbers;
         list[index] = e.target.value;
-        setNumbersList([...list]);
+        setNumbers([...list]);
     }
 
     return (
         <List>
-            {numbersList.map((number, index) => (
+            {numbers.map((number, index) => (
                 <ListItem key={index + "-number"}>
                     <TextField
                         margin="dense"

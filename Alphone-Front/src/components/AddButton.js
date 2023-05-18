@@ -8,12 +8,11 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import NumbersListInput from './NumbersListInput';
-import { contacts, addContact } from '../API manager/api';
+import { addContact } from '../API manager/api';
+import GeneralDialog from './GeneralDialog';
 
 export default function AddButton() {
     const [open, setOpen] = useState(false);
-    const [teamName, setTeamName] = useState('');
-    const [system, setSystem] = useState('');
     const [numbers, setNumbers] = useState(["0987230594", "23432412", "3242342"]);
 
 
@@ -26,8 +25,11 @@ export default function AddButton() {
     };
 
     const send = (teamName, system, numbers) => {
-        addContact(teamName, system, numbers);
-        handleClose();
+        addContact(teamName, system, numbers).then((data) => {
+            console.log(data);
+            handleClose();
+            window.location.reload()
+        });
     };
     
     return (
@@ -36,37 +38,13 @@ export default function AddButton() {
                 <Button variant="contained" size="large" onClick={handleClickOpen} startIcon={<AddIcon />} disableElevation>
                     Add
                 </Button>
+                <GeneralDialog 
+                handleClose={handleClose} 
+                open={open} 
+                send={send} 
+                contact={false}
+                />
             </Stack>
-            <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Edit team</DialogTitle>
-                <DialogContent>
-                    <TextField
-                        margin="dense"
-                        id="name"
-                        label="Team Name"
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        value={teamName}
-                        onChange={(e) => setTeamName(e.target.value)}
-                    />
-                    <TextField
-                        margin="dense"
-                        id="mainSystem"
-                        label='Main System'
-                        type="text"
-                        fullWidth
-                        variant="standard"
-                        value={system}
-                        onChange={(e) => setSystem(e.target.value)}
-                    />
-                    <NumbersListInput numbers={numbers} />
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={() => { send(teamName, system, numbers)}}>Complete</Button>
-                </DialogActions>
-            </Dialog>
         </div>
     );
 }
