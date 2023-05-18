@@ -30,7 +30,7 @@ export default function TeamsTable({ contacts }) {
                         <StyledTableCell></StyledTableCell>
                     </TableRow>
                 </TableHead>
-                <TeamsTableBody />
+                <TeamsTableBody contacts={contacts} />
             </Table>
         </TableContainer>
     );
