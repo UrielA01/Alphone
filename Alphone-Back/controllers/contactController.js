@@ -48,3 +48,12 @@ exports.delete_contact = asyncHandler(async (req, res, next) => {
     console.log(req.body);
     res.send("deleted");
 });
+
+exports.update_contact = asyncHandler(async (req, res, next) => {
+    await Contact.findOneAndUpdate({ _id: req.body.contactId }, {
+        teamName: req.body.teamName,
+        system: req.body.system,
+        numbers: req.body.numbers,
+    });
+    res.send("deleted");
+});

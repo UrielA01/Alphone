@@ -22,5 +22,15 @@ const deleteContact = (contactId) => {
     });
     return response;
 }
+
+const updateContact = (contactId, teamName, system, numbers) => {
+    const response = baseRequest.put('contact', {
+        contactId: contactId,
+        teamName: teamName,
+        system: system,
+        numbers: numbers
+    });
+    return response;
+}
  
-export { contacts, addContact, deleteContact }
+export { contacts, addContact, deleteContact, updateContact }
