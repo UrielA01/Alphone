@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from '@mui/material/styles';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
@@ -6,6 +6,7 @@ import TableRow from '@mui/material/TableRow';
 import NumbersList from './NumbersList';
 import DeleteDialog from './DeleteDialog';
 import EditDialog from './EditDiaglog';
+import { contacts } from '../API manager/api';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -17,11 +18,17 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
 }));
 
-export default function TeamsTableBody({ contacts }) {
+export default function TeamsTableBody() {
+    const [contactsList, setContactsList] = useState([]);
+
+    useEffect(() => {
+        contacts().then(list => setContactsList(list.data))
+    }, []);
+
     return (
         <TableBody>
             {
-                contacts.map((contact) => (
+                contactsList.map((contact) => (
                     <TableRow key={contact.teamName}>
                         <StyledTableCell component="th" scope="row">
                             {contact.teamName}

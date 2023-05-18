@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import Stack from '@mui/material/Stack';
@@ -7,9 +7,15 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+import NumbersListInput from './NumbersListInput';
+import { contacts, addContact } from '../API manager/api';
 
 export default function AddButton() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
+    const [teamName, setTeamName] = useState('');
+    const [system, setSystem] = useState('');
+    const [numbers, setNumbers] = useState(["0987230594", "23432412", "3242342"]);
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -17,6 +23,11 @@ export default function AddButton() {
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const send = (teamName, system, numbers) => {
+        addContact(teamName, system, numbers);
+        handleClose();
     };
     
     return (
@@ -36,6 +47,8 @@ export default function AddButton() {
                         type="text"
                         fullWidth
                         variant="standard"
+                        value={teamName}
+                        onChange={(e) => setTeamName(e.target.value)}
                     />
                     <TextField
                         margin="dense"
@@ -44,11 +57,14 @@ export default function AddButton() {
                         type="text"
                         fullWidth
                         variant="standard"
+                        value={system}
+                        onChange={(e) => setSystem(e.target.value)}
                     />
+                    <NumbersListInput numbers={numbers} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Complete</Button>
+                    <Button onClick={() => { send(teamName, system, numbers)}}>Complete</Button>
                 </DialogActions>
             </Dialog>
         </div>

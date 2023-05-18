@@ -1,14 +1,18 @@
 import axios from "axios";
 
-export function api() {
-    const baseRequest = axios.create({
-        baseURL: "http://127.0.0.1:8000/"
-    });
+const baseRequest = axios.create({
+    baseURL: "http://127.0.0.1:8000/"
+});
 
-    const getContacts = async () => {
-        const contacts = await baseRequest.get('contacts');
-        return contacts.data;
-    }
-    
-    return {getContacts};
+const contacts = async () => (await baseRequest.get('contacts'));
+
+const addContact = (teamName, system, numbers) => {
+    const response = baseRequest.post('contact', {
+        teamName: teamName,
+        system: system,
+        numbers: numbers
+    });
+    return response.data;
 }
+
+export { contacts, addContact }

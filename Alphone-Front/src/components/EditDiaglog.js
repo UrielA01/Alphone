@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
@@ -6,9 +6,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Edit from '@mui/icons-material/Edit';
+import NumbersListInput from './NumbersListInput';
 
 export default function EditDialog({ contact }) {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -44,6 +45,7 @@ export default function EditDialog({ contact }) {
                         defaultValue={contact.system}
                         variant="standard"
                         />
+                    <NumbersListInput numbers={contact.numbers} />
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
