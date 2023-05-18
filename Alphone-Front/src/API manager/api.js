@@ -15,4 +15,12 @@ const addContact = (teamName, system, numbers) => {
     return response;
 }
 
-export { contacts, addContact }
+const deleteContact = (contactId) => {
+    const response = baseRequest.delete('contact', {data: {
+        contactId: contactId
+    }
+    });
+    return response;
+}
+ 
+export { contacts, addContact, deleteContact }

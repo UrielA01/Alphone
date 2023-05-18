@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -6,10 +6,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Delete from '@mui/icons-material/Delete';
+import { deleteContact } from '../API manager/api';
 
 
-export default function DeleteDialog() {
-    const [open, setOpen] = React.useState(false);
+export default function DeleteDialog({ contact }) {
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -17,6 +18,13 @@ export default function DeleteDialog() {
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const deleteWithClose = (contactId) => {
+        deleteContact(contactId).then(() => {
+            setOpen(false);
+            window.location.reload()
+        })
     };
 
     return (
@@ -40,7 +48,7 @@ export default function DeleteDialog() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>No</Button>
-                    <Button onClick={handleClose} autoFocus>
+                    <Button onClick={() => deleteWithClose(contact._id)} autoFocus>
                         Yes
                     </Button>
                 </DialogActions>

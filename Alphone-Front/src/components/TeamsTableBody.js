@@ -37,7 +37,7 @@ export default function TeamsTableBody() {
                         </StyledTableCell>
                         <StyledTableCell>{contact.system}</StyledTableCell>
                         <StyledTableCell><NumbersList numbers={contact.numbers} /></StyledTableCell>
-                        <StyledTableCell><DeleteDialog /> <EditDialog contact={contact} /> </StyledTableCell>
+                        <StyledTableCell><DeleteDialog contact={contact} /> <EditDialog contact={contact} /> </StyledTableCell>
                     </TableRow>
                 ))
             }

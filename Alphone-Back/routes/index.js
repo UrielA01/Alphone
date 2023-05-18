@@ -12,4 +12,6 @@ router.get('/contacts', contactController.contact_get);
 
 router.post('/contact', contactController.add_contact_post);
 
+router.delete('/contact', contactController.delete_contact);
+
 module.exports = router;

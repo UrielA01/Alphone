@@ -23,10 +23,6 @@ exports.add_contact_post = [
         .withMessage("System name too short")
         .isAlphanumeric()
         .withMessage("System name has non-alphanumeric characters."),
-    // body("numbers")
-    //     .isLength({ min: 3 })
-    //     .escape()
-    //     .withMessage("Numbers list can not be empty"),
 
     asyncHandler(async (req, res, next) => {
         const errors = validationResult(req);
@@ -46,3 +42,9 @@ exports.add_contact_post = [
         }
     }),
 ];
+
+exports.delete_contact = asyncHandler(async (req, res, next) => {
+    await Contact.findByIdAndRemove(req.body.contactId);
+    console.log(req.body);
+    res.send("deleted");
+});
