@@ -18,8 +18,12 @@ function NumbersListInput({ numbers, setNumbers }) {
 
     function changeNumber(e, index) {
         const list = numbers;
-        list[index] = e.target.value;
-        setNumbers([...list]);
+        const numbersExpression = /^[0-9\b]+$/;
+        console.log(numbersExpression.test(e.target.value));
+        if (numbersExpression.test(e.target.value)) {
+            list[index] = e.target.value;
+            setNumbers([...list]);
+        }
     }
 
     return (
