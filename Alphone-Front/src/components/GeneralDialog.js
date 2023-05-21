@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import NumbersListInput from './NumbersListInput';
 
-export default function GeneralDialog({ contact, open, send, handleClose }) {
+export default function GeneralDialog({ contact, open, sendForm, handleClose }) {
     const [teamName, setTeamName] = useState(contact.teamName || '');
     const [system, setSystem] = useState(contact.system || '');
     const [numbers, setNumbers] = useState(contact.numbers || []);
@@ -40,7 +40,7 @@ export default function GeneralDialog({ contact, open, send, handleClose }) {
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button onClick={() => { send(teamName, system, numbers) }}>Complete</Button>
+                <Button onClick={() => { sendForm(teamName, system, numbers) }}>Complete</Button>
             </DialogActions>
         </Dialog>
     );

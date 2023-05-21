@@ -45,7 +45,6 @@ exports.add_contact_post = [
 
 exports.delete_contact = asyncHandler(async (req, res, next) => {
     await Contact.findByIdAndRemove(req.body.contactId);
-    console.log(req.body);
     res.send("deleted");
 });
 

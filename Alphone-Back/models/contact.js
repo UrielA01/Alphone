@@ -8,5 +8,4 @@ const ContactScheme = new Schema({
     numbers: [String],
 });
 
-// Export model
 module.exports = mongoose.model("Contact", ContactScheme);

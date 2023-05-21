@@ -15,10 +15,9 @@ export default function EditDialog({ contact }) {
         setOpen(false);
     };
 
-    const send = (teamName, system, numbers) => {
+    const sendForm = (teamName, system, numbers) => {
         const contactId = contact._id;
         updateContact(contactId, teamName, system, numbers).then((data) => {
-            console.log(data);
             handleClose();
             window.location.reload()
         });
@@ -30,10 +29,10 @@ export default function EditDialog({ contact }) {
                 <Edit />
             </Button>
             <GeneralDialog 
-            contact={contact}
-            handleClose={handleClose}
-            open={open} 
-            send={send} 
+                contact={contact}
+                handleClose={handleClose}
+                open={open} 
+                sendForm={sendForm} 
             />
         </div>
     );

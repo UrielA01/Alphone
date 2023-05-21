@@ -29,7 +29,6 @@ function NumbersListInput({ numbers, setNumbers }) {
                     <TextField
                         margin="dense"
                         id={number}
-                        // defaultValue={number}
                         type="number"
                         fullWidth
                         variant="standard"

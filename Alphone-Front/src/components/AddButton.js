@@ -24,9 +24,8 @@ export default function AddButton() {
         setOpen(false);
     };
 
-    const send = (teamName, system, numbers) => {
+    const sendForm = (teamName, system, numbers) => {
         addContact(teamName, system, numbers).then((data) => {
-            console.log(data);
             handleClose();
             window.location.reload()
         });
@@ -39,10 +38,10 @@ export default function AddButton() {
                     Add
                 </Button>
                 <GeneralDialog 
-                handleClose={handleClose} 
-                open={open} 
-                send={send} 
-                contact={false}
+                    handleClose={handleClose} 
+                    open={open} 
+                    sendForm={sendForm} 
+                    contact={false}
                 />
             </Stack>
         </div>
