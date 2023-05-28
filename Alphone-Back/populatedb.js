@@ -42,8 +42,9 @@ async function contactCreate(teamName, system, numbers) {
 async function createContacts() {
     console.log("Adding contacts");
     await Promise.all([
-        contactCreate("tasht",  "tomcloud",  ["0545652222", "0000000000"]),
-        contactCreate("asdafdsf",  "nasdvkj",  ["099890000", "73284908", "8987899"]),
-        contactCreate("asasfgdg",  "nsda",  ["0987230594", "23432412", "3242342"]),
+        contactCreate("Infrastructure",  "TomCloud",  ["4454", "2348"]),
+        contactCreate("Development",  "Cloud portal",  ["2341", "4322", "9823"]),
+        contactCreate("OpenShift", "OpenShift", ["0987", "5672", "2783"]),
+        contactCreate("PaaS", "TomCloud", ["9824", "1248", "3746"]),
     ]);
 }

@@ -7,14 +7,14 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import NumbersListInput from './NumbersListInput';
 
-export default function GeneralDialog({ contact, open, sendForm, handleClose }) {
+export default function GeneralDialog({ title, contact, open, sendForm, handleClose }) {
     const [teamName, setTeamName] = useState(contact.teamName || '');
     const [system, setSystem] = useState(contact.system || '');
     const [numbers, setNumbers] = useState(contact.numbers || []);
 
     return (
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>Edit team</DialogTitle>
+            <DialogTitle>{title}</DialogTitle>
             <DialogContent>
                 <TextField
                     margin="dense"

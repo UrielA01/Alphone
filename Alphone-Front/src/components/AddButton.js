@@ -38,6 +38,7 @@ export default function AddButton() {
                     Add
                 </Button>
                 <GeneralDialog 
+                    title={"Add team"}
                     handleClose={handleClose} 
                     open={open} 
                     sendForm={sendForm} 

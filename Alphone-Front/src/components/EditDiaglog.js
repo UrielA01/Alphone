@@ -29,6 +29,7 @@ export default function EditDialog({ contact }) {
                 <Edit />
             </Button>
             <GeneralDialog 
+                title={"Edit team"}
                 contact={contact}
                 handleClose={handleClose}
                 open={open} 
